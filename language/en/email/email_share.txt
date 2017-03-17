@@ -1,0 +1,9 @@
+Subject: {FIRSTNAME} wants to share their Personal History
+
+Hello,
+
+This e-mail was sent from "{SITENAME}" by {FROM_USERNAME} ({FIRSTNAME} {LASTNAME}) who thought you may be interested in viewing their Personal History at:
+
+{U_HISTORY}
+
+If you wish to complain about having received this e-mail please contact the site administrator at {SITE_CONTACT}. Please quote the message headers when contacting this address.

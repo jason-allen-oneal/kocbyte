@@ -1,0 +1,32 @@
+{{#if has_qsts}}
+{{#each questions}}
+<div class="row">
+	{{#if answered}}
+	<div class="large-1 columns">
+		<img src="{{check}}" />
+	</div>
+	{{else}}
+	<div class="large-1 columns">
+		<div class="squaredFour">
+			<input type="checkbox" id="{{cat}}-{{id}}" value="{{id}}" name="{{cat}}[]" />
+			<label for="{{cat}}-{{id}}"></label>
+		</div>
+	</div>
+	{{/if}}
+	<div class="large-11 columns">
+		{{#if typename}}<strong>{{typename}}:</strong> {{/if}} {{qst}}
+	</div>
+</div>
+<div class="row">
+	<div class="large-12 columns">
+		&nbsp;
+	</div>
+</div>
+{{/each}}
+{{else}}
+<div class="row">
+	<div class="large-12 columns">
+		There are no questions in this category yet. You can add questions in the UCP if you're a registered user!
+	</div>
+</div>
+{{/if}}

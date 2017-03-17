@@ -1,0 +1,82 @@
+<div class="row">
+	<div class="large-12 columns text-center">
+		Note: Sharing of answers can only be done through the User Control Panel -- a feature reserved for registered users.
+	</div>
+</div>
+<div class="row">
+	<div class="large-12 columns">
+		<button id="facebook" data-id="{{id}}" data-type="{{type}}" data-share-type="{{share_type}}" class="zocial icon facebook"></button>
+		<button id="twitter" data-id="{{id}}" data-type="{{type}}" data-share-type="{{share_type}}" class="zocial icon twitter"></button>
+		<button id="googleplus" data-id="{{id}}" data-type="{{type}}" data-share-type="{{share_type}}" class="zocial icon googleplus"></button>
+		<button id="tumblr" data-id="{{id}}" data-type="{{type}}" data-share-type="{{share_type}}" class="zocial icon tumblr"></button>
+		<button id="email" data-id="{{id}}" data-type="{{type}}" data-share-type="{{share_type}}" class="zocial icon email"></button>
+	</div>
+</div>
+
+<script type="text/javascript">
+var field = $('.zocial.icon:first'),
+	id = field.attr('data-id'),
+	t = field.attr('data-type'),
+	st = field.attr('data-share-type'),
+	q = 'mode=share&t='+t+'&st='+st+'&id='+id;
+	
+Site.Funcs.ajaxCall('social', q, function(data){
+	Sharing.shareUrl = data.url;
+	Sharing.shareTitle = data.text;
+	Sharing.shareDesc = data.desc;
+	Sharing.shareLongDesc = data.long_desc;
+	Sharing.shareCap = data.caption;
+	Sharing.sharePic = data.picture;
+	
+	$('#facebook').sharrre({
+		share: {
+			facebook: true
+		},
+		urlCurl: '',
+		enableHover: false,
+		enableTracking: false,
+		buttons: {
+			facebook: {
+				url: Sharing.shareUrl,
+				text: Sharing.shareTitle,
+				action: 'share',
+				caption: Sharing.shareCap,
+				desc: Sharing.shareLongDesc,
+				pic: Sharing.sharePic
+			}
+		},
+		click: function(api, options){
+			api.openPopup('facebook');
+		}
+	});
+
+	$('#twitter.twitter').click(function(){
+		window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(Sharing.shareTitle)+'&url='+encodeURIComponent(Sharing.shareUrl), '', 'toolbar=0, status=0, width=650, height=360');
+	});
+
+	$('#googleplus.googleplus').click(function(){
+		window.open("https://plus.google.com/share?hl=en-US&url="+encodeURIComponent(Sharing.shareUrl), '', 'toolbar=0, status=0, width=900, height=500');
+	});
+	
+	$('#tumblr.tumblr').click(function(){
+		window.open('http://www.tumblr.com/share/link?url='+encodeURIComponent(Sharing.shareUrl)+'&name='+encodeURIComponent(Sharing.shareTitle)+'&description='+encodeURIComponent(Sharing.shareLongDesc), '', 'toolbar=0, status=0, width=900, height=500');
+	});
+	
+	$('#email.email').click(function(){
+		var q = 'mode=email&action=pop&id='+id+'&st='+st+'&t='+t;
+		Site.Funcs.ajaxCall('social', q, function(data){
+			var html = Site.Funcs.templateCall(data);
+			Site.Funcs.popLoad(html);
+		});
+	});
+});
+
+var Sharing = {
+	shareUrl: '',
+	shareTitle: '',
+	shareDesc: '',
+	shareLongDesc: '',
+	sharePic: '',
+	shareCap: '',
+};
+</script>

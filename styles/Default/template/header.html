@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	{META}
+	<title>{PAGE_TITLE} &bull; {SITENAME}</title>
+	<base href="{BASE}" />
+	<link rel="canonical" href="{BASE}" />
+
+	<link rel="stylesheet" href="assets/css/foundation.css" />
+	<link rel="stylesheet" href="assets/css/app.css" />
+</head>
+
+<body>
+<script>
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '1724338664509945',
+		xfbml      : true,
+		version    : 'v2.6'
+    });
+};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div id="header" class="row">
+	<div class="large-12 columns">
+		<h3>KoCByte</h3><h5>Our Business Is Death Itself</h5>
+	</div>
+</div>

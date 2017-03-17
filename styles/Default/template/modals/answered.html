@@ -1,0 +1,102 @@
+<div class="row" class="qstContainer">
+	<div class="large-12 columns">
+		<div class="row">
+			<div class="large-12 columns question">
+				{{qst}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns space">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns answer">
+				{{#if resVideo}}
+				<video id="cam-answer-{{id}}" data-uuid="{{response.answer}}"></video>
+				{{/if}}
+				
+				{{#if resAudio}}
+				
+				{{/if}}
+				
+				{{#if resText}}
+				<p>{{response.answer}}</p>
+				{{/if}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns space">
+				&nbsp;
+			</div>
+		</div>
+		
+		{{#if followup1}}
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				{{followupqst1}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				{{#if resVideo}}
+				<video id="cam-followup1-{{id}}" data-uuid="{{response.followup1}}"></video>
+				{{/if}}
+				
+				{{#if resAudio}}
+				
+				{{/if}}
+				
+				{{#if resText}}
+				<p>{{response.followup1}}</p>
+				{{/if}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		{{/if}}
+		
+		{{#if followup2}}
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				{{followupqst2}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				{{#if resVideo}}
+				<video id="cam-followup2-{{id}}" data-uuid="{{response.followup2}}"></video>
+				{{/if}}
+				
+				{{#if resAudio}}
+				
+				{{/if}}
+				
+				{{#if resText}}
+				<p>{{response.followup2}}</p>
+				{{/if}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		{{/if}}
+		
+		<a class="button radius" href="{{returnUrl}}">Continue</a>
+	</div>
+</div>

@@ -1,0 +1,147 @@
+<!-- INCLUDE header.html -->
+<div class="row">
+	<!-- INCLUDE left_column.html -->
+	<div class="large-9 columns">
+		<!-- IF IN_SEARCH -->
+		<div class="row">
+			<div class="large-6 columns">
+				Player Search
+				<form action="{S_PLAYER}" method="post" name="p_search" class="custom">
+					<input name="player" type="text" />
+					<input type="hidden" name="search" value="true" />
+					<input type="hidden" name="d" value="{DOMAIN}" />
+					<input type="submit" value="Search" class="button radius" />
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+			<!-- IF .player -->
+				<!-- BEGIN player -->
+				<a href="{player.U_PLAYER}">{player.PREFIX} {player.NAME}</a><br />
+				<!-- END player -->
+			<!-- ELSE -->
+				<p>No players found.</p>
+			<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- ELSE -->
+		<!-- IF FOUND_PLAYER -->
+		<div class="row">
+			<div class="large-12 columns">
+				<h3>{PREFIX} {NAME}</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 end columns">
+				Might: {MIGHT}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-4 columns">
+				Glory: {GLORY}
+			</div>
+			<div class="large-4 end columns text-left">
+				Max Glory: {MAX_GLORY}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-4 columns">
+				Alliance: <!-- IF HAS_ALLI --><a href="{U_A}">{A_NAME}</a><!-- ELSE -->None<!-- ENDIF -->
+			</div>
+			<div class="large-4 end columns text-left">
+				UID: <a href="{U_D}">{UID}</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6 columns">
+				Misted: <!-- IF MISTED -->{MISTED}<!-- ELSE -->Nope!<!-- ENDIF -->
+			</div>
+			<div class="large-6 columns">
+				Truced: <!-- IF TRUCED -->{TRUCED}<!-- ELSE -->Nope!<!-- ENDIF -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-5 columns">
+				<h5>Cities</h5>
+				<!-- IF .city -->
+				<!-- BEGIN city -->
+				<div class="row">
+					<div class="large-6 columns">
+						{city.NAME}
+					</div>
+					<div class="large-6 columns text-right">
+						<a href="#" class="cityCoords" data-domain="{DOMAIN}" data-x="{city.X}" data-y="{city.Y}">{city.X},{city.Y}</a>
+					</div>
+				</div>
+				<!-- IF city.HAS_WILDS -->
+				<!-- BEGIN wild -->
+				<div class="row">
+					<div class="large-4 large-offset-1 columns">
+						{city.wild.TYPE}
+					</div>
+					<div class="large-2 columns">
+						{city.wild.LVL}
+					</div>
+					<div class="large-2 columns end">
+						<a href="#" class="cityCoords" data-domain="{DOMAIN}" data-x="{city.wild.X}" data-y="{city.wild.Y}">{city.wild.X},{city.wild.Y}</a>
+					</div>
+				</div>
+				<!-- END wild -->
+				<!-- ENDIF -->
+				<!-- END city -->
+				<!-- ELSE -->
+				<p>No cities found yet...</p>
+				<!-- ENDIF -->
+			</div>
+			<div class="large-7 columns">
+				<div class="row">
+					<div class="large-12 columns">
+						<div class="callout secondary">
+							<h5>Name Changes</h5>
+							<!-- IF .nc -->
+							<!-- BEGIN nc -->
+							{nc.DATE}: {nc.PREV} &ndash;&gt; {nc.CURR}<br />
+							<!-- END nc -->
+							<!-- ELSE -->
+							<p>No Changes</p>
+							<!-- ENDIF -->
+						</div>
+					</div>
+					<div class="large-12 columns">
+						<div class="callout secondary">
+							<h5>Alliance Changes</h5>
+							<!-- IF .ac -->
+							<!-- BEGIN ac -->
+							{ac.DATE}: <a href="{ac.U_PREV}">{ac.PREV}</a> &ndash;&gt; <a href="{ac.U_CURR}">{ac.CURR}</a><br />
+							<!-- END ac -->
+							<!-- ELSE -->
+							<p>No Changes</p>
+							<!-- ENDIF -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ELSE -->
+		<p>No Player data found.</p>
+		<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- INCLUDE footer.html -->

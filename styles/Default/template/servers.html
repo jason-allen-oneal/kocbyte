@@ -1,0 +1,31 @@
+<!-- INCLUDE header.html -->
+<div class="row">
+	<!-- INCLUDE left_column.html -->
+	<div class="large-9 columns">
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<h3>UID - {UID}</h3>
+			</div>
+		</div>
+		<!-- IF MODE == 'search' -->
+		<!-- IF .p -->
+		<!-- BEGIN p -->
+		<div class="row">
+			<div class="large-12 columns">
+				<a href="{p.U_D}">{p.PREFIX} {p.NAME} - {p.DOMAIN}</a>
+			</div>
+		</div>
+		<!-- END p -->
+		<!-- ELSE -->
+		<p>Noting Found!</p>
+		<!-- ENDIF -->
+		<!-- ELSE -->
+		<div class="row">
+			<div class="large-12 columns">
+				<a href="{U_D}">{PREFIX} {NAME}</a>
+			</div>
+		</div>
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- INCLUDE footer.html -->

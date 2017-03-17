@@ -1,0 +1,47 @@
+<div class="row">
+	<div class="large-12 columns">
+		<div class="panel radius">
+			<form id="email_share" class="custom">
+				<div class="row">
+					<div class="large-{{#if user}}5{{else}}12{{/if}} columns">
+						<p>Enter a comma separated list of email addresses to which to share this content.</p>
+						<textarea name="emails"></textarea>
+					</div>
+					{{#if user}}
+					<div class="large-2 columns text-center">
+						<strong>OR</strong>
+					</div>
+					<div class="large-5 columns">
+						<p>Select someone from your address book</p>
+						<select multiple="multiple" size="3" id="addyBook" name="address_book[]">
+						{{#each address_opts}}
+							<option value="{{@key}}">{{this}}</option>
+						{{/each}}
+						</select>
+						<a href="{{ucp_address_book}}">Add Addresses to your Address Book</a>
+					</div>
+					{{/if}}
+				</div>
+				<div class="row collapse">
+					<div class="large-3 columns">
+						<span class="prefix">Your Email:</span>
+					</div>
+					<div class="large-9 columns">
+						<input type="text" name="from" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-12 columns">
+						<input type="submit" value="Send!" name="submit" class="button radius" />
+						<input type="hidden" name="id" value="{{id}}" />
+						<input type="hidden" name="st" value="{{st}}" />
+						<input type="hidden" name="type" value="{{type}}" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+$(document).foundation();
+</script>

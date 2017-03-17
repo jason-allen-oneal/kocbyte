@@ -1,0 +1,146 @@
+<!-- INCLUDE header.html -->
+<div class="row">
+	<!-- INCLUDE left_column.html -->
+	<div class="large-9 columns">
+		<div class="row">
+			<div class="large-12 columns text-center">
+				<h3>Domain {DOMAIN}</h3>
+				Last updated: {LAST_UPDATE}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="callout secondary">
+			<div class="row">
+				<div class="large-4 columns">
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<strong>Most Might</strong>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<a href="{U_MAX_MIGHT_PLAYER}">{S_MAX_MIGHT_PLAYER}</a>: {S_MAX_MIGHT_PLAYER_MIGHT}
+						</div>
+					</div>
+				</div>
+				<div class="large-4 columns">
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<strong>Most Glory</strong>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<a href="{U_MAX_GLORY_PLAYER}">{S_MAX_GLORY_PLAYER}</a>: {S_MAX_GLORY_PLAYER_GLORY}
+						</div>
+					</div>
+				</div>
+				<div class="large-4 columns">
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<strong>Most Lifetime Glory</strong>
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-12 columns text-center">
+							<a href="{U_MAX_LIFE_GLORY_PLAYER}">{S_MAX_LIFE_GLORY_PLAYER}</a>: {S_MAX_LIFE_GLORY_PLAYER_GLORY}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="callout secondary">
+			<div class="row">
+				<div class="large-6 columns">
+					Players counted: {P_CT}
+				</div>
+				<div class="large-6 columns">
+					Alliances counted: {A_CT}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="callout secondary">
+			<div class="row">
+				<div class="large-4 columns">
+					<a href="{U_MISTED}">Misted cities: {M_CT}</a>
+				</div>
+				<div class="large-4 columns">
+					HQs counted: {HQ_CT}
+				</div>
+				<div class="large-4 columns">
+					<a href="{U_ORE}">Level 10 Mountains: {ORE_CT}</a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="callout secondary">
+			<div class="row">
+				<div class="large-12 columns text-center">
+					<strong>Top Alliances</strong>
+					<div class="row">
+						<div class="large-6 columns text-center">
+						<!-- BEGIN a -->
+							{a.RANK}. <a href="{a.U_ALLI}">{a.NAME}</a><br />
+							<!-- IF a.BREAK -->
+						</div>
+						<div class="large-6 columns text-center">
+							<!-- ENDIF -->
+						<!-- END a -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-4 columns">
+				Player Search
+				<form action="{S_PLAYER}" method="post" name="p_search" class="custom">
+					<input name="player" type="text" />
+					<input type="hidden" name="search" value="true" />
+					<input type="hidden" name="d" value="{DOMAIN}" />
+					<input type="submit" value="Search" class="button radius" />
+				</form>
+			</div>
+			<div class="large-4 columns">
+				UID Search
+				<form action="{S_UID}" method="post" name="uid_search" class="custom">
+					<input type="text" name="uid" />
+					<input type="submit" value="Search" class="button radius" />
+				</form>
+			</div>
+			<div class="large-4 columns">
+				Alliance Search
+				<form action="{S_ALLI}" method="post" name="a_search" class="custom">
+					<input name="alliance" type="text" />
+					<input type="hidden" name="search" value="true" />
+					<input type="hidden" name="d" value="{DOMAIN}" />
+					<input type="submit" value="Search" class="button radius" />
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- INCLUDE footer.html -->

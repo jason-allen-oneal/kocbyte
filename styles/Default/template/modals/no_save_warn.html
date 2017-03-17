@@ -1,0 +1,20 @@
+<div class="panel radius">
+	<div class="row">
+		<div class="large-12 columns">
+			<p>{{message}}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<input type="button" class="button radius" id="noSaveConfirm" value="Okay!" />
+		</div>
+	</div>
+</div>
+<script>
+$('#noSaveConfirm').on('click', function(e){
+	e.preventDefault();
+	Site.Funcs.ajaxCall('site', 'mode=no_save_warn&sub=set', function(data){
+		Site.Funcs.popClose();
+	});
+});
+</script>

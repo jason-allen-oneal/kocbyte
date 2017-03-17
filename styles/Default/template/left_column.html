@@ -1,0 +1,28 @@
+<div class="large-3 columns">
+	<ul class="vertical menu" data-accordion-menu>
+		<li><a href="{U_INDEX}">{L_INDEX}</a></li>
+		<li><a href="{U_SERVERS}">Server List</a></li>
+		<li>
+			<a href="#">Domains</a>
+			<ul class="menu vertical nested">
+				<!-- BEGIN dom -->
+				<li><a href="{dom.U_D}">{dom.D}</a></li>
+				<!-- END dom -->
+			</ul>
+		</li>
+		<li>
+			<a href="#">UID Search</a>
+			<ul class="menu vertical nested">
+				<li>
+					<form action="{S_UID}" method="post" name="uid_search" class="custom">
+						<input type="text" name="uid" />
+						<input type="submit" value="Search" class="button radius" />
+					</form>
+				</li>
+			</ul>
+		</li>
+		<li><a href="https://www.facebook.com/kocbyte">Facebook</a></li>
+		<li><a href="{U_NEWS}">News</a></li>
+		<li><a href="{U_DONATE}">Donate</a></li>
+	</ul>
+</div>

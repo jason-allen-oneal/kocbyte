@@ -1,0 +1,158 @@
+<!-- INCLUDE header.html -->
+<div class="row">
+	<!-- INCLUDE left_column.html -->
+	<div class="large-9 columns">
+		<!-- IF IN_SEARCH -->
+		<div class="row">
+			<div class="large-6 columns">
+				Alliance Search
+				<form action="{S_ALLIANCE}" method="post" name="a_search" class="custom">
+					<input name="alliance" type="text" />
+					<input type="hidden" name="search" value="true" />
+					<input type="hidden" name="d" value="{DOMAIN}" />
+					<input type="submit" value="Search" class="button radius" />
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+			<!-- IF .alli -->
+				<!-- BEGIN alli -->
+				<a href="{alli.U_ALLIANCE}">{alli.NAME}</a><br />
+				<!-- END alli -->
+			<!-- ELSE -->
+				<p>No alliance found.</p>
+			<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- ELSE -->
+		<!-- IF FOUND -->
+		<div class="row">
+			<div class="large-7 columns">
+				<h3>{NAME} <small>Rank: {RANK}</small></h3>
+				{DESC}
+			</div>
+			<div class="large-5 columns">
+				<form method="post" action="{S_SORT}">
+					<div class="row">
+						<div class="large-12 columns">
+							Sort Members
+						</div>
+					</div>
+					<div class="row">
+						<div class="large-8 columns left">
+							<select name="sort" id="sort">
+								{SORT_OPTS}
+							</select>
+						</div>
+						<div class="large-4 columns rigt">
+							<input type="submit" name="submit" value="Go" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				Alliance Headquarters: <!-- IF HQ_FOUND --><a href="#" class="cityCoords" data-domain="{DOMAIN}" data-x="{HQ_X}" data-y="{HQ_Y}">{HQ_X},{HQ_Y}</a><!-- ELSE -->Not Found<!-- ENDIF -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-4 columns">
+				<strong>Might:</strong> {MIGHT}
+			</div>
+			<div class="large-4 columns end">
+				<strong>Glory:</strong> {GLORY}
+			</div>
+			<div class="large-4 columns">
+				<strong>Members:</strong> {MEMBERS}
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				<div class="row">
+					<div class="large-12 columns text-center">
+						Activity
+					</div>
+				</div>
+				<div class="row">
+					<div class="large-3 columns">
+						<div class="activity active"></div><strong>Active</strong> 0-3 days offline
+					</div>
+					<div class="large-3 columns">
+						<div class="activity moderate"></div><strong>Moderate</strong> 3-7 days offline
+					</div>
+					<div class="large-3 columns">
+						<div class="activity inactive"></div><strong>Inactive</strong> 7-14 days offline
+					</div>
+					<div class="large-3 columns">
+						<div class="activity dormant"></div><strong>Dormant</strong> More than 14 days offline
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				<!-- IF HAS_MEMBERS -->
+				<div class="row">
+					<div class="large-1 columns">
+						Active
+					</div>
+					<div class="large-4 columns">
+						Name
+					</div>
+					<div class="large-3 columns">
+						Position
+					</div>
+					<div class="large-4 columns">
+						Might
+					</div>
+				</div>
+				<!-- BEGIN member -->
+				<div class="row<!-- IF member.IS_EVEN --> even<!-- ENDIF -->">
+					<div class="large-1 columns">
+						<div class="activity {member.ACTIVITY}"></div>
+					</div>
+					<div class="large-4 columns">
+						<a href="{member.U_P}">{member.PREFIX} {member.NAME}<!-- IF member.MISTED --> <small>(Misted)</small><!-- ENDIF --></a>
+					</div>
+					<div class="large-3 columns">
+						{member.POS}
+					</div>
+					<div class="large-4 columns">
+						Might: {member.MIGHT}
+					</div>
+				</div>
+				<!-- END member -->
+				<!-- ELSE -->
+				<p>No members found... (yet)</p>
+				<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- ELSE -->
+		<p>No alliance found</p>
+		<!-- ENDIF -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- INCLUDE footer.html -->

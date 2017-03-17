@@ -1,0 +1,91 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	# Options +SymLinksIfOwnerMatch
+	RewriteEngine On
+	RewriteBase /
+	
+	RewriteCond %{HTTP_HOST} ^kocbyte.com [NC]
+	RewriteCond %{HTTP_HOST} ^http://kocbyte.com [NC]
+	RewriteRule ^(.*)$ http://www.kocbyte.com/$1 [L,R=301,NC]
+</IfModule>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/(ajax|tools|google([a-z0-9])) [NC]
+RewriteRule !adm index.php [L,NC]
+
+Options -MultiViews
+
+# ----------------------------------------------------------------------
+# UTF-8 encoding
+# ----------------------------------------------------------------------
+
+# Use UTF-8 encoding for anything served text/plain or text/html
+AddDefaultCharset utf-8
+
+# Force UTF-8 for a number of file formats
+AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+
+# ----------------------------------------------------------------------
+# A little more security
+# ----------------------------------------------------------------------
+
+# To avoid displaying the exact version number of Apache being used, add the
+# following to httpd.conf (it will not work in .htaccess):
+# ServerTokens Prod
+
+# "-Indexes" will have Apache block users from browsing folders without a
+# default document Usually you should leave this activated, because you
+# shouldn't allow everybody to surf through every folder on your server (which
+# includes rather private places like CMS system folders).
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+# Block access to "hidden" directories or files whose names begin with a
+# period. This includes directories used by version control systems such as
+# Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteCond %{SCRIPT_FILENAME} -d [OR]
+  RewriteCond %{SCRIPT_FILENAME} -f
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# Block access to backup and source files. These files may be left by some
+# text/html editors and pose a great security danger, when anyone can access
+# them.
+<FilesMatch "(\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)|~)$">
+  Order allow,deny
+  Deny from all
+  Satisfy All
+</FilesMatch>
+
+# prevent access to PHP error log
+<Files php_errors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType image/jpg "access 1 month"
+	ExpiresByType image/jpeg "access 1 month"
+	ExpiresByType image/gif "access 1 month"
+	ExpiresByType image/png "access 1 month"
+	ExpiresByType text/css "access 1 month"
+	ExpiresByType application/pdf "access 1 month"
+	ExpiresByType application/javascript "access 1 month"
+	ExpiresByType application/x-javascript "access 1 month"
+	ExpiresByType application/x-shockwave-flash "access 1 month"
+	ExpiresByType image/x-icon "access 1 year"
+	ExpiresDefault "access 6 hours"
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php56” package as the default “PHP” programming language.
+<IfModule mime_module>
+#   AddType application/x-httpd-ea-php56 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,24 @@
+<!-- INCLUDE header.html -->
+<div class="row">
+	<!-- INCLUDE left_column.html -->
+	<div class="large-9 columns">
+		<!-- IF IN_PROV -->
+		<div class="row large-up-4">
+			<!-- BEGIN m -->
+			<div class="column">
+				<a href="#" class="cityCoords" data-domain="{DOMAIN}" data-x="{m.X}" data-y="{m.Y}">{m.X},{m.Y}</a>
+			</div>
+			<!-- END m -->
+		</div>
+		<!-- ELSE -->
+		<div class="row large-up-4">
+			<!-- BEGIN p -->
+			<div class="column">
+				<a href="{p.U_PROV}">{p.NAME} ({p.COUNT})</a>
+			</div>
+			<!-- END p -->
+		</div>
+		<!-- ENDIF -->
+	</div>
+</div>
+<!-- INCLUDE footer.html -->

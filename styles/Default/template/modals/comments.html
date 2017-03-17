@@ -1,0 +1,48 @@
+<div class="row" style="width:100em;">
+	<div class="large-12 columns">
+		<div class="panel radius">
+			<div class="row">
+				<div class="large-12 columns">
+					<h3>Comments</h3>
+				</div>
+			</div>
+			<div id="comments">
+			{{#each comments}}
+			<div class="row">
+				<div class="large-10 columns">
+					<strong>{{this.poster}}:</strong> {{this.content}}
+				</div>
+				<div class="large-2 columns">
+					{{this.time}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-12 columns">
+					&nbsp;
+				</div>
+			</div>
+			{{else}}
+			<div class="row">
+				<div class="large-12 columns text-center">
+					<p>There are no comments here.</p>
+				</div>
+			</div>
+			{{/each}}
+			</div>
+			{{#if loggedin}}
+			<div class="row collapse">
+				<div class="large-10 columns">
+					<input type="text" name="comment" class="inline" placeholder="Enter text..." />
+				</div>
+				<div class="large-2 columns">
+					<input type="hidden" name="type" value="{{type}}" />
+					<input type="hidden" name="id" value="{{id}}" />
+					<input type="hidden" name="u" value="{{u}}" />
+					<input type="button" class="inline button radius tiny" id="commentAdd" value="Comment!" />
+				</div>
+			{{else}}
+			<p>You must register or login to comment.</p>
+			{{/if}}
+		</div>
+	</div>
+</div>
